@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Booking" parallel="tests" thread-count="1">
+    <test name="Booking-Web/chrome">
+        <classes>
+            <class name="booking.tests.LanguageTest"/>
+            <class name="booking.tests.CurrencyTest"/>
+            <class name="booking.tests.E2ETest"/>
+            <class name="booking.tests.RegisterTest"/>
+            <class name="booking.tests.SingInTest"/>
+        </classes>
+    </test>
+</suite>
