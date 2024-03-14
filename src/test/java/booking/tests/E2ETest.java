@@ -1,11 +1,10 @@
 package booking.tests;
 
-import booking.pageObject.baseComponents.BoxPaddingGeniusPage;
-import booking.pageObject.page.CheckHotelPage;
-import booking.pageObject.page.HotelReservationPage;
-import booking.pageObject.page.SelectCityDateNumberOfPeoplePage;
+import booking.pageObject.baseComponents.PopUp;
+import booking.pageObject.page.HomePage;
+import booking.pageObject.page.HotelsPage;
+import booking.pageObject.page.ReservationPage;
 import framework.BaseTest;
-import framework.PropertyReader;
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
 
@@ -13,26 +12,28 @@ public class E2ETest extends BaseTest {
     @Test
     @Description("Test description")
     public void e2eTest() {
-        BoxPaddingGeniusPage boxPaddingGeniusPage = new BoxPaddingGeniusPage("CloseWindowPopUp");
-        boxPaddingGeniusPage.closeWindowPopUp();
+        PopUp popUp = new PopUp();
+        popUp.closeWindowPopUp();
 
-        SelectCityDateNumberOfPeoplePage selectCityDateNumberOfPeoplePage = new SelectCityDateNumberOfPeoplePage("");
-        selectCityDateNumberOfPeoplePage.inputCity(PropertyReader.getProperty("city"));
-        selectCityDateNumberOfPeoplePage.clickOnDateBox();
-        selectCityDateNumberOfPeoplePage.setDateDeparture();
-        selectCityDateNumberOfPeoplePage.setDateArrival();
-        selectCityDateNumberOfPeoplePage.clickNumberOfPeopleBox();
-        selectCityDateNumberOfPeoplePage.clickAddNumberOfPeopleButton();
-        selectCityDateNumberOfPeoplePage.clickDoneButton();
-        selectCityDateNumberOfPeoplePage.clickSearchButton();
+        HomePage homePage = new HomePage();
+        homePage.inputCity("Dubai");
+        homePage.clickOnDateBox();
+        homePage.setDateDeparture();
+        homePage.setDateArrival();
+        homePage.clickNumberOfPeopleBox();
+        homePage.clickAddNumberOfPeopleButton();
+        homePage.clickDoneButton();
+        homePage.clickSearchButton();
 
-        CheckHotelPage checkHotelPage = new CheckHotelPage("");
-        checkHotelPage.checkHotelFilterApplied("Hotel");
-        checkHotelPage.checkParkingFilterApplied("Parking");
-        checkHotelPage.checkRatingFilterApplied("Wonderful: 9+");
-        checkHotelPage.clickSeeAvailabilityButton();
+        HotelsPage hotelsPage = new HotelsPage();
+        hotelsPage.checkHotelFilterApplied("Hotel");
+        hotelsPage.checkParkingFilterApplied("Parking");
+        hotelsPage.checkRatingFilterApplied("Wonderful: 9+");
+        hotelsPage.clickSeeAvailabilityButton();
 
-        HotelReservationPage hotelReservationPage = new HotelReservationPage("");
+        ReservationPage hotelReservationPage = new ReservationPage();
         hotelReservationPage.clickReservationButton();
+        hotelReservationPage.clickSelectVille();
+        hotelReservationPage.clickNumberVille();
     }
 }

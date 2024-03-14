@@ -1,6 +1,6 @@
 package booking.tests;
 
-import booking.pageObject.baseComponents.BoxPaddingGeniusPage;
+import booking.pageObject.baseComponents.PopUp;
 import booking.pageObject.page.EnteringPassword;
 import booking.pageObject.page.HomePage;
 import booking.pageObject.page.RegisterPage;
@@ -11,11 +11,11 @@ import org.testng.annotations.Test;
 public class RegisterTest extends BaseTest {
     @Test
     public void registrationWithCorrectEmailAddress() {
-        BoxPaddingGeniusPage boxPaddingGeniusPage = new BoxPaddingGeniusPage("CloseWindowPopUp");
-        boxPaddingGeniusPage.closeWindowPopUp();
+        PopUp popUp = new PopUp();
+        popUp.closeWindowPopUp();
 
         HomePage homePage = new HomePage();
-        homePage.clickButtonRegister();
+        homePage.header.clickButtonRegister();
 
         RegisterPage registerPage = new RegisterPage();
         registerPage.setEmailAddress(PropertyReader.getProperty("emailAddress"));

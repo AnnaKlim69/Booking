@@ -1,9 +1,10 @@
 package booking.tests;
 
-import booking.pageObject.baseComponents.BoxPaddingGeniusPage;
+import booking.pageObject.baseComponents.PopUp;
 import booking.pageObject.page.EnteringPassword;
 import booking.pageObject.page.HomePage;
 import booking.pageObject.page.RegisterPage;
+import booking.pageObject.page.SingInPage;
 import framework.BaseTest;
 import framework.PropertyReader;
 import org.testng.annotations.Test;
@@ -11,15 +12,15 @@ import org.testng.annotations.Test;
 public class SingInTest extends BaseTest {
     @Test
     public void singInWithCorrectEmailAddress() {
-        BoxPaddingGeniusPage boxPaddingGeniusPage = new BoxPaddingGeniusPage("CloseWindowPopUp");
-        boxPaddingGeniusPage.closeWindowPopUp();
+        PopUp popUp = new PopUp();
+        popUp.closeWindowPopUp();
 
         HomePage homePage = new HomePage();
-        homePage.clickButtonSingIn();
+        homePage.header.clickButtonSingIn();
 
-        RegisterPage registerPage = new RegisterPage();
-        registerPage.setEmailAddress(PropertyReader.getProperty("emailAddress"));
-        registerPage.clickContinueWithEmailButton();
+        SingInPage singInPage = new SingInPage();
+        singInPage.setEmailAddress(PropertyReader.getProperty("emailAddress"));
+        singInPage.clickContinueWithEmailButton();
 
         EnteringPassword enteringPassword = new EnteringPassword();
         enteringPassword.enteringPassword(PropertyReader.getProperty("password"));
