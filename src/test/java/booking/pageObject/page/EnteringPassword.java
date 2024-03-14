@@ -20,6 +20,7 @@ public class EnteringPassword extends BaseBookingPage{
     public void enteringPassword(String password) {
         ENTERING_PASSWORD.sendKeys(password);
     }
+
     @Step("Click on button Get login link")
     public void clickGetLoginLinkButton() {//нажатие кнопки
         GET_LOGIN_lINK_BUTTON.click();

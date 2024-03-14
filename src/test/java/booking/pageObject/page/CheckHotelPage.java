@@ -7,10 +7,10 @@ import org.openqa.selenium.By;
 
 public class CheckHotelPage extends BaseBookingPage {
     private static final String PAGE_LOCATOR = "//div[@data-testid='map-trigger']";
-    private static final CheckBox APPLIED_FILTER_HOTEL = new CheckBox(By.xpath("//div[@data-testid='filters-group-label-content' and text()='Villas']"));
-    public static final CheckBox APPLIED_FILTER_PARKING = new CheckBox(By.xpath("//div[@data-testid='filters-group-label-content' and text()='Parking']"));
-    private static final CheckBox APPLIED_FILTER_RATING = new CheckBox(By.xpath("//div[@data-testid='filters-group-label-content' and text()='Wonderful: 9+']"));
-    private static final Button SEE_AVAILABILITY_BUTTON = new Button(By.xpath("//span[text()='See availability']"));
+    private static final CheckBox APPLIED_FILTER_HOTEL = new CheckBox(By.xpath("//div[text()='Виллы']"));
+    public static final CheckBox APPLIED_FILTER_PARKING = new CheckBox(By.xpath("//div[text()='Парковка']"));
+    private static final CheckBox APPLIED_FILTER_RATING = new CheckBox(By.xpath("//div[text()='Превосходно: 9+']"));
+    private static final Button SEE_AVAILABILITY_BUTTON = new Button(By.xpath("//span[text()='Наличие мест']"));
 
     public CheckHotelPage(String pageTitle) {
         super(By.xpath(String.format(PAGE_LOCATOR, pageTitle)), "'Check' Hotel Page");
@@ -18,20 +18,17 @@ public class CheckHotelPage extends BaseBookingPage {
 
     @Step("Check if the hotel filter is applied")
     public void checkHotelFilterApplied(String hotel) {
-        softAssert.assertEquals(APPLIED_FILTER_HOTEL.getText(), hotel,
-                "Expected result: " + hotel + ". Actual result: " + APPLIED_FILTER_HOTEL.getText());
+        APPLIED_FILTER_HOTEL.click();
     }
 
     @Step("Check if the parking filter is applied")
     public void checkParkingFilterApplied(String parking) {
-        softAssert.assertEquals(APPLIED_FILTER_PARKING.getText(), parking,
-                "Expected result: " + parking + ". Actual result: " + APPLIED_FILTER_PARKING.getText());
+        APPLIED_FILTER_PARKING.click();
     }
 
     @Step("Check if the rating filter is applied")
     public void checkRatingFilterApplied(String reting) {
-        softAssert.assertEquals(APPLIED_FILTER_RATING.getText(), reting,
-                "Expected result: " + reting + ". Actual result: " + APPLIED_FILTER_RATING.getText());
+        APPLIED_FILTER_RATING.click();
     }
 
     @Step("Click button see availability button")

@@ -10,7 +10,7 @@ public class RegisterPage extends BasePage {
     private static final String PAGE_LOCATOR = "//h1[text()='Sign in or create an account']";
     private static final TextBox EMAIL_ADDRESS = new TextBox(By.xpath("//input[@id='username']"));
     private static final Button CONTINUE_WITH_EMAIL_BUTTON = new Button(By.xpath(
-            "//span[@type='submit']"));
+            "//span[text()='Продолжить через электронную почту']"));
 
     public RegisterPage() {
         super(By.xpath(PAGE_LOCATOR),"'Register' Page");
@@ -20,6 +20,7 @@ public class RegisterPage extends BasePage {
     public void setEmailAddress(String emailAddress) {
         EMAIL_ADDRESS.sendKeys(emailAddress);
     }
+
     @Step("Click on button Continue with email")
     public void clickContinueWithEmailButton() {//нажатие кнопки
         CONTINUE_WITH_EMAIL_BUTTON.click();

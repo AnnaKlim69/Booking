@@ -20,6 +20,7 @@ public class SingInPage extends BasePage {
     public void setEmailAddress(String emailAddress) {
         EMAIL_ADDRESS.sendKeys(emailAddress);
     }
+
     @Step("Click on button Continue with email")
     public void clickContinueWithEmailButton() {//нажатие кнопки
         CONTINUE_WITH_EMAIL_BUTTON.click();
