@@ -15,7 +15,7 @@ public class HotelsPage extends BaseBookingPage {
     public HotelsPage() {
         super(By.xpath(String.format(PAGE_LOCATOR, "Все фильтры")), "'Check' Hotel Page");
     }
-//сделать проверки
+
     @Step("Check if the hotel filter is applied")
     public void checkHotelFilterApplied(String hotel) {
         APPLIED_FILTER_HOTEL.click();

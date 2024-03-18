@@ -32,6 +32,4 @@ public class ReservationPage extends BaseBookingPage{
     public void clickNumberVille() {
         NUMBER_VILLE.click();
     }
-
-
 }

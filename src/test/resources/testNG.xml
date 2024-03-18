@@ -3,6 +3,7 @@
 <suite name="Booking" parallel="tests" thread-count="1">
     <test name="Booking-Web/chrome">
         <classes>
+            <class name="booking.tests.HeaderTest"/>
             <class name="booking.tests.E2ETest"/>
             <class name="booking.tests.RegisterTest"/>
             <class name="booking.tests.SingInTest"/>

@@ -5,12 +5,10 @@ import framework.elements.Label;
 import framework.elements.TextBox;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.testng.asserts.SoftAssert;
 
 public class HomePage extends BaseBookingPage {
-
     private static final String PAGE_LOCATOR = "//a[@aria-label='Booking.com']";
-
-    //    private static final String PAGE_LOCATOR = "//div[@class='hero-banner-searchbox']";
     private static final TextBox WHERE_WE_GO = new TextBox(By.xpath("//input[@name='ss']"));
     public static final Label DATE_TUR = new Label(By.xpath("//div[@data-testid='searchbox-dates-container']"));
     private static final Label DATE_DEPARTURE = new Label(By.xpath("//span[@data-date='2024-04-01']"));
@@ -27,9 +25,7 @@ public class HomePage extends BaseBookingPage {
     }
 
     @Step("Input city")
-    public void inputCity(String city) {
-        WHERE_WE_GO.sendKeys(city);
-    }
+    public void inputCity(String city) {WHERE_WE_GO.sendKeys(city);}
 
     @Step("Click on the date box")
     public void clickOnDateBox() {

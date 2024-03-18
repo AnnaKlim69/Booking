@@ -6,11 +6,11 @@ import framework.elements.TextBox;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-public class SingInPage extends BasePage {
+public class SingInPage extends BaseBookingPage {
     private static final String PAGE_LOCATOR = "//h1[text()='Sign in or create an account']";
     private static final TextBox EMAIL_ADDRESS = new TextBox(By.xpath("//input[@id='username']"));
     protected static final Button CONTINUE_WITH_EMAIL_BUTTON = new Button(By.xpath(
-            "//span[text()='Continue with email']"));
+            "//span[text()='Продолжить через электронную почту']"));
 
     public SingInPage() {
         super(By.xpath(PAGE_LOCATOR),"'Register' Page");
