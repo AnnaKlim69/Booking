@@ -14,8 +14,10 @@ public class HeaderTest extends BaseTest {
         Header header = new Header();
         header.clickHeaderLogo();
         header.clickButtonCurrency();
+        header.itemValidationCurrency();
         header.clickCurrency();
         header.clickButtonLanguage();
+        header.itemValidationCurrency();
         header.clickLanguage();
         header.getButtonRegisterItem();
         header.getButtonSingInItem();
