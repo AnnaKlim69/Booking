@@ -26,9 +26,9 @@ public class E2ETest extends BaseTest {
         homePage.clickSearchButton();
 
         HotelsPage hotelsPage = new HotelsPage();
-        hotelsPage.checkHotelFilterApplied("Hotel");
-        hotelsPage.checkParkingFilterApplied("Parking");
-        hotelsPage.checkRatingFilterApplied("Wonderful: 9+");
+        hotelsPage.clickHotelFilterApplied("Hotel");
+        hotelsPage.clickParkingFilterApplied("Parking");
+        hotelsPage.clickRatingFilterApplied("Wonderful: 9+");
         hotelsPage.clickSeeAvailabilityButton();
 
         ReservationPage hotelReservationPage = new ReservationPage();
