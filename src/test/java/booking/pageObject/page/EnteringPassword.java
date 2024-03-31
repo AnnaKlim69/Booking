@@ -7,7 +7,8 @@ import org.openqa.selenium.By;
 
 public class EnteringPassword extends BaseBookingPage{
 
-    private static final String PAGE_LOCATOR = "//h1[@tclass='bui_font_display_one bui_font_heading--bold bui-spacer--medium nw-step-header']";
+    private static final String PAGE_LOCATOR =
+            "//h1[@tclass='bui_font_display_one bui_font_heading--bold bui-spacer--medium nw-step-header']";
     private static final TextBox ENTERING_PASSWORD = new TextBox(By.xpath("//input[@name='password']"));
     protected static final Button GET_LOGIN_lINK_BUTTON = new Button(By.xpath(
             "//span[text()='Получить ссылку для входа']"));

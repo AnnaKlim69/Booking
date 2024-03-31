@@ -12,14 +12,12 @@ public class HeaderTest extends BaseTest {
         popUp.closeWindowPopUp();
 
         Header header = new Header();
-        header.clickHeaderLogo();
+//        header.clickHeaderLogo();
+        header.checkHeaderCurrency();
         header.clickButtonCurrency();
-        header.itemValidationCurrency();
-        header.clickCurrency();
+        header.clickCurrency("Белорусский рубль");
+        header.checkHeaderLanguage();
         header.clickButtonLanguage();
-        header.itemValidationCurrency();
-        header.clickLanguage();
-        header.getButtonRegisterItem();
-        header.getButtonSingInItem();
+        header.clickLanguage("Русский");
     }
 }

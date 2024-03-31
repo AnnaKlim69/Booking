@@ -2,7 +2,6 @@ package booking.tests;
 
 import booking.pageObject.baseComponents.PopUp;
 import booking.pageObject.page.EnteringPassword;
-import booking.pageObject.page.HomePage;
 import booking.pageObject.page.RegisterPage;
 import framework.BaseTest;
 import framework.PropertyReader;
@@ -14,10 +13,8 @@ public class RegisterTest extends BaseTest {
         PopUp popUp = new PopUp();
         popUp.closeWindowPopUp();
 
-        HomePage homePage = new HomePage();
-        homePage.header.clickButtonRegister();
-
         RegisterPage registerPage = new RegisterPage();
+        registerPage.clickButtonRegister();
         registerPage.setEmailAddress(PropertyReader.getProperty("emailAddress"));
         registerPage.clickContinueWithEmailButton();
 

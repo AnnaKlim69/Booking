@@ -11,9 +11,15 @@ public class RegisterPage extends BasePage {
     private static final TextBox EMAIL_ADDRESS = new TextBox(By.xpath("//input[@id='username']"));
     private static final Button CONTINUE_WITH_EMAIL_BUTTON = new Button(By.xpath(
             "//span[text()='Продолжить через электронную почту']"));
+    private static final Button HEADER_REGISTER = new Button(By.xpath("//a[@data-testid='header-sign-up-button']"));
 
     public RegisterPage() {
         super(By.xpath(PAGE_LOCATOR),"'Register' Page");
+    }
+
+    @Step("Click button register")
+    public void clickButtonRegister() {
+        HEADER_REGISTER.click();
     }
 
     @Step("Fill in register From with '{emailAddress}'")
