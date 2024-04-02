@@ -4,7 +4,6 @@ import framework.elements.Button;
 import framework.elements.CheckBox;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
 public class PopUp {

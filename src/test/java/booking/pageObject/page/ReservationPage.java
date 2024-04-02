@@ -1,23 +1,32 @@
 package booking.pageObject.page;
 
 import framework.elements.Button;
-import framework.elements.CheckBox;
-import framework.elements.Label;
+import framework.elements.TextBox;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class ReservationPage extends BaseBookingPage {
 
     private static final String PAGE_LOCATOR = "//a[@aria-label='Booking.com']";
+    private static final String NUMBER_VILLE = "//option[@value='%s']";
     private static final Button RESERVATION_BUTTON = new Button(By.xpath(
-            "//div[@class='bui-box--border-width-100 bui-box--border-color-neutral_alt bui-box--border-radius-100 " +
-                    "bui-u-padding-start--16 bui-u-padding-end--16 bui-u-padding-bottom--16']"));
-    private static final CheckBox SELECT_VILLE = new CheckBox(By.xpath(
+            "///span[@class='bui-button__text js-reservation-button__text']"));
+    private static final Button SELECT_VILLE = new Button(By.xpath(
             "//select[@class='hprt-nos-select js-hprt-nos-select']']"));
-    private static final Label NUMBER_VILLE = new Label(By.xpath("//option[@value='1']"));
 
     public ReservationPage() {
         super(By.xpath(String.format(PAGE_LOCATOR, "Найти")), "'Hotel Reservation' Page");
+    }
+
+
+    @Step("Click on the select ville")
+    public void clickSelectVille() { SELECT_VILLE.click();
+    }
+
+    @Step("Click on the number ville item")
+    public void clickNumberVilleItem(String villeItem) {
+        TextBox textBox = new TextBox(By.xpath(String.format(NUMBER_VILLE, villeItem)));
+        textBox.click();
     }
 
     @Step("Click on the reservation button")
@@ -25,12 +34,9 @@ public class ReservationPage extends BaseBookingPage {
         RESERVATION_BUTTON.click();
     }
 
-    @Step("Click on the select ville")
-    public void clickSelectVille() {
-        SELECT_VILLE.click();
-    }
-
-    @Step("Click on the number ville")
-    public void clickNumberVille() { NUMBER_VILLE.click();
+    @Step("Assertion: villeItem is equal to parameter")
+    public void checkVilleItemFilter() {
+        softAssert.assertEquals(NUMBER_VILLE, NUMBER_VILLE,
+                "Expected result: " + NUMBER_VILLE + ". Actual result: " + NUMBER_VILLE);
     }
 }

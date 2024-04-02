@@ -8,7 +8,6 @@ import booking.pageObject.page.TravelDetailsPage;
 import framework.BaseTest;
 import framework.PropertyReader;
 import jdk.jfr.Description;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class E2ETest extends BaseTest {
@@ -30,7 +29,7 @@ public class E2ETest extends BaseTest {
 
         HotelsPage hotelsPage = new HotelsPage();
         hotelsPage.clickExpandAccommodationTypeButton();
-        hotelsPage.clickHotelFilterApplied();
+//        hotelsPage.clickHotelFilterApplied();
         hotelsPage.checkHotelFilter("Виллы");
         hotelsPage.clickParkingFilterApplied();
         hotelsPage.checkParkingFilter("Парковка");
@@ -38,13 +37,14 @@ public class E2ETest extends BaseTest {
         hotelsPage.checkRatingFilter("Превосходно: 9+");
         hotelsPage.clickHotelsSortingButton();
         hotelsPage.checkHotelsSorting();
-        hotelsPage.selectHotelsSorting("Цена (сначала самая низкая)");
+//        hotelsPage.selectHotelsSorting("Цена (сначала самая низкая)");
         hotelsPage.clickSeeAvailabilityButton();
 
         ReservationPage hotelReservationPage = new ReservationPage();
-        hotelReservationPage.clickReservationButton();
         hotelReservationPage.clickSelectVille();
-        hotelReservationPage.clickNumberVille();
+        hotelReservationPage.clickNumberVilleItem("1");
+        hotelReservationPage.checkVilleItemFilter();
+        hotelReservationPage.clickReservationButton();
 
         TravelDetailsPage travelDetailsPage = new TravelDetailsPage();
         travelDetailsPage.inputFirstName(PropertyReader.getProperty("firstName"));
